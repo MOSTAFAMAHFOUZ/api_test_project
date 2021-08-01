@@ -20,8 +20,8 @@ class CategoriesController extends Controller
     }
 
     public function getProducts($id){
-        Category::findOrFail($id);
-        return CategoryResource::collection(Category::where('id',$id)->get());
+        $cat = Category::findOrFail($id);
+        return CategoryResource::collection($cat);
     }
 
     public function show($category){
